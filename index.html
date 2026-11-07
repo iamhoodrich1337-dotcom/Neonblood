@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090914">
+<title>NEON AFTERHOURS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="shell">
+  <header>
+    <div class="brand"><span class="pulse"></span><div><b>NEON AFTERHOURS</b><small>город не спит · версия 1.0</small></div></div>
+    <div class="top-actions">
+      <button id="saveBtn" class="quiet">СОХРАНИТЬ</button>
+      <button id="loadBtn" class="quiet">ЗАГРУЗИТЬ</button>
+      <button id="soundBtn" class="quiet">ЗВУК: ВКЛ</button>
+    </div>
+  </header>
+  <main>
+    <section class="game-wrap">
+      <canvas id="game" width="960" height="600" aria-label="Игровое поле"></canvas>
+      <div class="scanlines"></div>
+      <div id="toast" class="toast"></div>
+      <div id="startScreen" class="overlay">
+        <div class="eyebrow">НОЧЬ · ГОРОД · ДЕНЬГИ</div>
+        <h1>NEON<br><em>AFTERHOURS</em></h1>
+        <p>Один город. Три дела. Никаких чистых рук.</p>
+        <button id="startBtn" class="primary">НАЧАТЬ НОЧЬ <span>→</span></button>
+        <div class="controls-hint">WASD — движение · SHIFT — бег · МЫШЬ — прицел · ЛКМ — огонь · E — взаимодействие</div>
+      </div>
+      <div id="pauseScreen" class="overlay hidden">
+        <div class="eyebrow">ПЕРЕДЫШКА</div><h2>ПАУЗА</h2>
+        <button id="resumeBtn" class="primary">ПРОДОЛЖИТЬ</button>
+      </div>
+      <div id="gameoverScreen" class="overlay hidden">
+        <div class="eyebrow">КОНЕЦ СМЕНЫ</div><h2>ТЕБЯ СЛОМАЛИ</h2>
+        <p>Ночь ещё можно переиграть.</p><button id="retryBtn" class="primary">СНАЧАЛА</button>
+      </div>
+    </section>
+    <aside class="panel">
+      <div class="panel-head"><span>НОЧНОЙ ОТЧЁТ</span><span id="clock">02:17 AM</span></div>
+      <div class="stats">
+        <div><small>НАЛИЧНЫЕ</small><strong id="cash">$ 0000</strong></div>
+        <div><small>ЗДОРОВЬЕ</small><strong id="health">100%</strong></div>
+        <div><small>РОЗЫСК</small><strong id="heat">☆☆☆☆☆</strong></div>
+      </div>
+      <div class="mission">
+        <div class="eyebrow">ТЕКУЩЕЕ ДЕЛО</div>
+        <h3 id="missionTitle">01 / ТИХИЙ ВХОД</h3>
+        <p id="missionText">Доберись до ломбарда и забери сумку.</p>
+        <div class="progress"><i id="progress"></i></div>
+        <small id="objective">ЦЕЛЬ: НАЙТИ ЛОМБАРД</small>
+      </div>
+      <div class="story">
+        <div class="eyebrow">РАДИО «СИНЯЯ ЛИНИЯ»</div>
+        <p id="radio">«Рэй, ты на связи? В этом городе каждый второй продаёт тебя за цену хорошего коктейля».</p>
+      </div>
+      <div class="inventory">
+        <div class="eyebrow">СНАРЯЖЕНИЕ</div>
+        <div class="weapon"><span class="weapon-icon">▰</span><div><b>Пистолет «Шёпот»</b><small>∞ патронов · короткая очередь</small></div><kbd>ЛКМ</kbd></div>
+        <div class="weapon"><span class="weapon-icon pink">✦</span><div><b>Нервная система</b><small>Беги, пока можешь</small></div><kbd>SHIFT</kbd></div>
+      </div>
+      <div class="footer-note">АВТОСОХРАНЕНИЕ В ЭТОМ БРАУЗЕРЕ <span id="savedMark">●</span></div>
+    </aside>
+  </main>
+  <footer><span>© 2026 NEON AFTERHOURS</span><span>ПРОТОТИП · СИНТВЕЙВ · TOP-DOWN ACTION</span><span>ESC — ПАУЗА</span></footer>
+</div>
+<input type="file" id="saveFile" accept="application/json" hidden>
+<script src="game.js"></script>
+</body>
+</html>
